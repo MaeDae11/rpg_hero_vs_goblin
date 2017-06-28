@@ -20,6 +20,7 @@ class Person(object):
         print "%s's email: %s, %s's phone number: %s" % (self.name, self.email, self.name, self.phone)
         print "Their friends are: %s" % self.friends
 
+# entering sonny and jordan(self) with their info(arguments) into the class Person
 sonny = Person("Sonny", "sonny@hotmail.com", "482-485-4948")
 jordan = Person("Jordan", "jordan@aol.com", "495-586-3456")
 
@@ -37,6 +38,7 @@ sonny.print_contact_info()
 jordan.print_contact_info()
 # length of jordans friends (how many people are his friends)
 len(jordan.friends)
+# length of sonnys friends
 len(sonny.friends)
 
 # class Vehicle(object):
