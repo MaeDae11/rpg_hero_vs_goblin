@@ -50,13 +50,47 @@ def main():
         def __init__(self):
             self.goblin_health = 6
             self.goblin_power = 2
+        def attack(self, hero):
+            while self.goblin_health > 0 and hero.hero_health > 0:
+                print "You have %d health and %d power." % (self.goblin_health, self.goblin_power)
+                print "The hero has %d health and %d power." % (hero.hero_health, hero.hero_power)
+                print
+                print "What do you want to do?"
+                print "1. fight hero"
+                print "2. do nothing"
+                print "3. flee"
+                print "> ",
+                input = raw_input()
+                if input == "1":
+                    # goblin attacks hero
+                    hero.hero_health -= self.goblin_power
+                    print "You do %d damage to the hero." % self.goblin_power
+                    if hero.hero_health <= 0:
+                        print "The hero is dead."
+                elif input == "2":
+                    pass
+                elif input == "3":
+                    print "Goodbye."
+                    break
+                else:
+                    print "Invalid input %r" % input
+
+                if self.goblin_health > 0:
+                    # hero attacks goblin
+                    self.goblin_health -= hero.hero_power
+                    print "The hero does %d damage to you." % hero.hero_power
+                    if self.goblin_health <= 0:
+                        print "You are dead."
 
     # declaring hero_person is Hero()
     hero_person = Hero()
     goblin_person = Goblin()
 
 
-    # self      attack     enemey
-    hero_person.attack(goblin_person)
+    # self      attacks     enemey
+    # hero_person.attack(goblin_person)
+
+    # self        attacks     hero
+    goblin_person.attack(hero_person)
 
 main()
